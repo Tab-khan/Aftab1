@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>मिलते हैं कल</title>
+
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 100px;
+      background-color: #f9f9f9;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 20px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+    }
+
+    #yesBtn {
+      background-color: #90ee90;
+    }
+
+    #noBtn {
+      background-color: #ff7f7f;
+    }
+
+    .meter-container {
+      width: 300px;
+      height: 30px;
+      border: 2px solid #4caf50;
+      margin: 20px auto;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    #loveMeter {
+      height: 100%;
+      width: 0%;
+      background-color: #a5f2a5;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      transition: width 0.4s ease;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Will you come tomorrow? 😊</h2>
+
+  <button id="yesBtn" onclick="sayYes()">YES 😊</button>
+  <button id="noBtn" onclick="sayNo()">NO 😊</button>
+
+  <!-- Love Meter Below Buttons -->
+  <div class="meter-container">
+    <div id="loveMeter">0%</div>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    let love = 0;
+
+    function sayYes() {
+      document.getElementById("result").style.fontSize = "50px";
+      document.getElementById("result").innerHTML = "Hooray! Lets go 😊";
+    }
+
+    function sayNo() {
+      // Increase meter
+      if (love < 100) {
+        love += 20;
+      }
+
+      let meter = document.getElementById("loveMeter");
+      meter.style.width = love + "%";
+      meter.innerHTML = love + "%";
+
+      // Print biggest text
+      document.getElementById("result").style.fontSize = "80px";
+      document.getElementById("result").innerHTML = "Hooray! Lets go 😊";
+    }
+  </script>
+
+</body>
+</html>
